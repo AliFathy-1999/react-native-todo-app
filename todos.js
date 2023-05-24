@@ -1,31 +1,45 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, ScrollView,View , TouchableOpacity,FlatList} from 'react-native';
+import { Text, ScrollView,View , TouchableOpacity,FlatList , CheckBox} from 'react-native';
 import styles from './styles';
-import React,{useState} from 'react';
-// import {  List, Checkbox } from 'react-native-paper';
+import React,{useEffect, useState} from 'react';
 export default function TodoApp(props) {
-    const [todos, setTodos ] = useState([])
     const [filter, setFilter] = useState('All');
+    const [todos,setTodos] = useState(props.todos);
+
     const handleFilterChange = (filter) => {
-        console.log(props.props);
         setFilter(filter);
     };
+
+    useEffect(()=>{
+      setTodos(props.todos)
+    },[props.todos])
+
+    const filteredTodos = todos.filter((todo) => {
+      
+      if (filter === 'All') {
+        return true;
+      } else if (filter === 'Active') {
+        return !todo.completed;
+      } else if (filter === 'Done') {
+        return todo.completed;
+      }
+    });
+    const isEmpty = ()=> todos.length === 0 ? true : false;
+
     const handleToggleTodo = (id) => {
-        setTodos((prevTodos) =>
-          prevTodos.map((todo) =>
-            todo.id === id ? { ...todo, completed: !todo.completed } : todo
-          )
-        );
-      };
-      const Item = ({title,desc}) => (
-        <View style={styles.item2}>
-          <Text style={styles.title2}>{title}</Text>
-          <Text style={styles.title2}>{desc}</Text>
-        </View>
-      );
+      
+      setTodos((prevTodos) =>
+        prevTodos.map((todo) =>
+          todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+    
+    };
+
 return (
     <View style={styles.container}>
         <View style={styles.filterContainer}>
+          
                 <TouchableOpacity
                 style={filter === 'All' ? styles.activeFilterBtn : styles.filterBtn}
                 onPress={() => handleFilterChange('All')}>
@@ -43,27 +57,24 @@ return (
                 onPress={() => handleFilterChange('Done')}>
                     <Text style={filter === 'Done' ? styles.activeFilterText : styles.filterText}>Done</Text>
                 </TouchableOpacity>
-        </View>
-        <View style={styles.todosContainer}>
+        </View> 
                 <FlatList
-                data={props.props}
+                data={filteredTodos}
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => (
-                   
-                    <TouchableOpacity
-                        style={styles.todosContainer}
-                        onPress={() => handleToggleTodo(item.id)}>
-                            <Text style={[styles.doneTodo]}>{item.title}</Text>
-                            <Text >{item.desc}</Text>
-                        
-                    </TouchableOpacity>
-                 
+                    <View style={styles.listItem}>
+                      <TouchableOpacity onPress={() => handleToggleTodo(item.id)}>
+                            <CheckBox
+                              style = { styles.checkbox }
+                              value={item.completed ? true : false}
+                            />
+                        </TouchableOpacity>
+                            <Text style={item.completed ? styles.doneTodo : styles.listItemTitle}> {item.id}. {item.title}</Text>
+                    </View>
                 )}
                 />
-            </View>
-
-
-    </View>
+              </View>
+    
 
 );
 }

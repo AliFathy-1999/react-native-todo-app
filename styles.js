@@ -89,16 +89,44 @@ const styles = StyleSheet.create({
     },
     doneTodo: {
       textDecorationLine: "line-through",
+      fontSize: 21,
+      fontWeight: 'bold',
+      marginLeft:15
     },
-    item2: {
-      backgroundColor: '#f9c2ff',
-      padding: 20,
-      marginVertical: 8,
-      marginHorizontal: 16,
+    listItem: {
+      flex: 0,
+      flexDirection: 'row',
+      marginTop: 10,
+      marginBottom: 10,
+      backgroundColor: '#f5f5f5',
+      borderRadius: 5,
+      padding: 10,
+      width: 1000,
     },
-    title2: {
-      fontSize: 32,
+    listItemTitle: {
+      fontSize: 21,
+      fontWeight: 'bold',
+      marginLeft:15
     },
+
+    todoContainer: {
+      flex: 1,
+      flexDirection: 'column',
+      padding: 16,
+      
+    },
+    checkbox: {
+      width: 24,
+      height: 24,
+      marginRight: 8,
+      borderWidth: 1,
+      borderColor: 'black',
+    },
+    separator: {
+      height: 1,
+      backgroundColor: '#ccc',
+    },
+    
   });
 
 export default styles;
