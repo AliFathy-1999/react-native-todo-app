@@ -31,13 +31,15 @@ const styles = StyleSheet.create({
       borderRadius: 5,
     },
     submitBtn: {
-      width: "50%",
+      width: "25%",
       backgroundColor: "#61dafb",
       justifyContent: "center",
       alignItems: "center",
       padding: 20,
       borderRadius: 10,
       color: 'black',
+      flexDirection: 'row',
+
     },
     text: {
       color: "black",
@@ -55,6 +57,7 @@ const styles = StyleSheet.create({
       flexDirection: "row",
       width: "90%",
       justifyContent: "space-between",
+      
     },
     filterBtn: {
       width: "30%",
@@ -86,6 +89,7 @@ const styles = StyleSheet.create({
     },
     todosContainer: {
       marginTop: 10,
+      
     },
     doneTodo: {
       textDecorationLine: "line-through",
@@ -94,21 +98,17 @@ const styles = StyleSheet.create({
       marginLeft:15
     },
     listItem: {
-      flex: 0,
-      flexDirection: 'row',
-      marginTop: 10,
-      marginBottom: 10,
-      backgroundColor: '#f5f5f5',
-      borderRadius: 5,
-      padding: 10,
-      width: 1000,
+      flexDirection: 'row', 
+      alignItems: 'center',
+      marginBottom: 10, 
+    },
+    checkbox: {
+      marginRight: 10, 
     },
     listItemTitle: {
-      fontSize: 21,
-      fontWeight: 'bold',
-      marginLeft:15
+      flex: 1, 
+      fontSize: 16,
     },
-
     todoContainer: {
       flex: 1,
       flexDirection: 'column',
@@ -122,11 +122,66 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       borderColor: 'black',
     },
-    separator: {
-      height: 1,
-      backgroundColor: '#ccc',
+    doneTodo: {
+      flex: 1,
+      fontSize: 16,
+      textDecorationLine: 'line-through',
     },
-    
-  });
+    deleteBtn: {
+      backgroundColor: 'red',
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: 8,
+      borderRadius: 4,
+    },
+    icon: {
+      marginRight: 4,
+    },
+    btnText: {
+      color: 'white',
+      fontSize: 16,
+      fontWeight: 'bold',
+    },
+    detailsBtn: {
+      margin:10,
+      backgroundColor: 'blue',
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: 8,
+      borderRadius: 4,
+    },
+    detailsContainer: {
+      
+      justifyContent: 'center',
+      alignItems: 'center',
 
+      padding: 8,
+      borderWidth: 4,
+      borderColor: '#20232a',
+      borderRadius: 6,
+      backgroundColor: '#61dafb',
+      color: '#20232a',
+      fontSize: 30,
+      fontWeight: 'bold',
+      marginBottom:30,
+    },
+    detailsHeading: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      marginBottom: 16,
+    },
+    detailsText: {
+      fontSize: 18,
+      marginBottom: 8,
+    },
+    detailsDesc: {
+      fontSize: 16,
+      marginBottom: 16,
+    },
+    detailsButtonText: {
+      fontSize: 16,
+      color: 'white',
+    },
+  });
+  
 export default styles;
