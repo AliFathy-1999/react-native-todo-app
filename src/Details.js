@@ -12,7 +12,7 @@ return (
       <Text style={styles.detailsText}>Title: {title}</Text>
       <Text style={styles.detailsDesc}>Description: {desc}</Text>
       <TouchableOpacity onPress={() => navigation.goBack()} style={styles.detailsBtn}>
-        <Text style={styles.detailsButtonText}>Go Home <Ionicons name="home" size={24} color="white " /></Text>
+        <Text style={styles.detailsButtonText}>Back to Home <Ionicons name="home" size={24} color="white " /></Text>
       </TouchableOpacity>
     </SafeAreaView>
     );
