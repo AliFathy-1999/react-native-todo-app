@@ -1,3 +1,9 @@
+# APP DEMO VIDEO
+
+
+https://github.com/AliFathy-1999/react-native-todo-app/assets/72993021/ae13b374-4693-4c9d-b14d-b72249b03fe0
+
+
 # TODO APP
 
 This is a simple TODO app built using Expo.
